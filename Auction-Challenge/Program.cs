@@ -13,19 +13,14 @@ namespace Auction_Challenge
         static int Main(string[] args)
         {
             //help options
-            if (args.Contains("--help") || args.Contains("-h") || args.Contains("-nw") || args.Contains("--no-write"))
+            if (args.Contains("--help") || args.Contains("-h"))
             {
                 Console.WriteLine("-n or --no-display: Do not display output \n-nw or --no-write: does not write to output.json");
                 return 0;
             }
 
             //getting input.json
-            string input = "";
-            string curr = "";
-            while((curr = Console.ReadLine()) != null)
-            {
-                input += curr;
-            }
+            string input = Console.In.ReadToEnd();
 
             //getting config file
             char slash = Path.DirectorySeparatorChar;

@@ -5,7 +5,14 @@ $ docker build -t challenge .
 $ docker run -i -v /path/to/challenge/config.json:/auction/config.json challenge < /path/to/challenge/input.json
 ```
 
+## Example unit test build and execution
+In the Dockerfile, comment out the first ENTRYPOINT and uncomment the second ENTRYPOINT.
+
+```bash
+$ docker build -t challenge .
+$ docker run challenge
+```
+
 # Auction Coding Challenge
 
-My solution to the sortable coding challenge. Uses the mono docker image because the Windows one is very large. Also uses .NET Framework 4.6.2 for mono compatibility.
-Unit tests were written, but I couldn't figure out how to execute them on docker.
+My solution to the sortable coding challenge. Uses .NET Framework 4.6.2 and NUnit for mono compatibility. See above for running unit tests.

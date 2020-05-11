@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Auction_Challenge;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+//using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace Auction_Challenge_UnitTest
 {
@@ -11,12 +12,13 @@ namespace Auction_Challenge_UnitTest
     /// All these tests use the default config.json located in root/auction
     /// The inputs are generated in each test
     /// </summary>
-    [TestClass]
+    [TestFixture()]
     public class UnitTest1
     {
         public AuctionChallenge Ac { get; set; }
 
-        public UnitTest1()
+        [SetUp]
+        public void SetUp()
         {
             Ac = new AuctionChallenge();
 
@@ -32,7 +34,7 @@ namespace Auction_Challenge_UnitTest
             Ac.MyConfig = config;
         }
 
-        [TestMethod]
+        [Test()]
         public void Auction_InvalidSite_Empty()
         {
             List<Bid> bids = new List<Bid>()
@@ -48,7 +50,7 @@ namespace Auction_Challenge_UnitTest
             Assert.AreEqual(0, Ac.AuctionResults[0].Count());
         }
 
-        [TestMethod]
+        [Test()]
         public void Auction_AllBidsTooLow_NoWinner()
         {
             List<Bid> bids = new List<Bid>()
@@ -64,7 +66,7 @@ namespace Auction_Challenge_UnitTest
             Assert.AreEqual(0, Ac.AuctionResults[0].Count());
         }
 
-        [TestMethod]
+        [Test()]
         public void Auction_InvalidBidder_DoesntWin()
         {
             List<Bid> bids = new List<Bid>()
@@ -81,7 +83,7 @@ namespace Auction_Challenge_UnitTest
             Assert.AreEqual("BIDD", Ac.AuctionResults[0][0].Bidder);
         }
 
-        [TestMethod]
+        [Test()]
         public void Auction_InvalidUnit_NoWinner()
         {
             List<Bid> bids = new List<Bid>()
@@ -99,7 +101,7 @@ namespace Auction_Challenge_UnitTest
             Assert.AreEqual(0, Ac.AuctionResults[0].Count());
         }
 
-        [TestMethod]
+        [Test()]
         public void Auction_HighBidWins_AUCTWins()
         {
             List<Bid> bids = new List<Bid>()
