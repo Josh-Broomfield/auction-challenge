@@ -15,4 +15,4 @@ $ docker run challenge
 
 # Auction Coding Challenge
 
-My solution to the sortable coding challenge. Uses .NET Framework 4.6.2 and NUnit for mono compatibility. See above for running unit tests.
+My solution to the sortable coding challenge. Uses .NET Framework 4.6.2 and NUnit for mono compatibility.
